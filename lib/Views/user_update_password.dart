@@ -95,6 +95,7 @@ class UserUpdatePassword extends StatelessWidget {
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           ),
                           TextFormField(
+                            keyboardType: TextInputType.emailAddress,
                             controller: provider.changePasswordEmailController,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
@@ -104,6 +105,8 @@ class UserUpdatePassword extends StatelessWidget {
                               }
                             },
                             decoration: const InputDecoration(
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.black)),
                               hintText: 'Email or Phone Number',
                               border: OutlineInputBorder(),
                             ),
@@ -117,6 +120,7 @@ class UserUpdatePassword extends StatelessWidget {
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           ),
                           TextFormField(
+                            obscureText: true,
                             controller: provider.newPasswordController,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
@@ -126,6 +130,8 @@ class UserUpdatePassword extends StatelessWidget {
                               }
                             },
                             decoration: const InputDecoration(
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.black)),
                               hintText: 'New Password',
                               border: OutlineInputBorder(),
                             ),

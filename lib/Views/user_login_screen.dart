@@ -69,7 +69,7 @@ class UserLoginScreen extends StatelessWidget {
                             ],
                           ),
                           const SizedBox(
-                            height: 100,
+                            height: 70,
                           ),
                           const Text(
                             'Email',
@@ -77,6 +77,7 @@ class UserLoginScreen extends StatelessWidget {
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           ),
                           TextFormField(
+                            keyboardType: TextInputType.emailAddress,
                             controller: provider.loginEmailController,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
@@ -86,6 +87,8 @@ class UserLoginScreen extends StatelessWidget {
                               }
                             },
                             decoration: const InputDecoration(
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.black)),
                               hintText: 'Email or Phone Number',
                               border: OutlineInputBorder(),
                             ),
@@ -99,6 +102,7 @@ class UserLoginScreen extends StatelessWidget {
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           ),
                           TextFormField(
+                            obscureText: true,
                             controller: provider.loginPasswordController,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
@@ -108,6 +112,8 @@ class UserLoginScreen extends StatelessWidget {
                               }
                             },
                             decoration: const InputDecoration(
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.black)),
                               hintText: 'Password',
                               border: OutlineInputBorder(),
                             ),

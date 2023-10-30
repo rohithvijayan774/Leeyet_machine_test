@@ -67,6 +67,7 @@ class UserRegisterScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 TextFormField(
+                                  textCapitalization: TextCapitalization.words,
                                   controller: provider.firstNameController,
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
@@ -76,6 +77,9 @@ class UserRegisterScreen extends StatelessWidget {
                                     }
                                   },
                                   decoration: const InputDecoration(
+                                    focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.black)),
                                     hintText: 'First Name',
                                     border: OutlineInputBorder(),
                                   ),
@@ -84,6 +88,7 @@ class UserRegisterScreen extends StatelessWidget {
                                   height: 30,
                                 ),
                                 TextFormField(
+                                  textCapitalization: TextCapitalization.words,
                                   controller: provider.lasttNameController,
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
@@ -93,6 +98,9 @@ class UserRegisterScreen extends StatelessWidget {
                                     }
                                   },
                                   decoration: const InputDecoration(
+                                    focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.black)),
                                     hintText: 'Last Name',
                                     border: OutlineInputBorder(),
                                   ),
@@ -101,6 +109,7 @@ class UserRegisterScreen extends StatelessWidget {
                                   height: 30,
                                 ),
                                 TextFormField(
+                                  keyboardType: TextInputType.emailAddress,
                                   controller: provider.emailController,
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
@@ -110,6 +119,9 @@ class UserRegisterScreen extends StatelessWidget {
                                     }
                                   },
                                   decoration: const InputDecoration(
+                                    focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.black)),
                                     hintText: 'Email or Phone Number',
                                     border: OutlineInputBorder(),
                                   ),
@@ -118,6 +130,7 @@ class UserRegisterScreen extends StatelessWidget {
                                   height: 30,
                                 ),
                                 TextFormField(
+                                  obscureText: true,
                                   controller: provider.passwordController,
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
@@ -127,6 +140,9 @@ class UserRegisterScreen extends StatelessWidget {
                                     }
                                   },
                                   decoration: const InputDecoration(
+                                    focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.black)),
                                     hintText: 'Password',
                                     border: OutlineInputBorder(),
                                   ),

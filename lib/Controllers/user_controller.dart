@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:leeyet_machine_test/Config/api.dart';
-import 'package:leeyet_machine_test/Views/user_home_screen.dart';
+import 'package:leeyet_machine_test/Views/product_grid_view.dart';
+import 'package:leeyet_machine_test/models/products_model/products_model.dart';
 
 class UserController with ChangeNotifier {
   //-------------------For User Registration------------------------------------
@@ -58,6 +59,7 @@ class UserController with ChangeNotifier {
 
   TextEditingController loginEmailController = TextEditingController();
   TextEditingController loginPasswordController = TextEditingController();
+  var userData;
 
   Future<void> userLogin(String email, String password, context) async {
     var data = {
@@ -73,9 +75,10 @@ class UserController with ChangeNotifier {
     );
 
     if (response!.statusCode == 200) {
+      userData = json.decode(response!.body);
       Navigator.of(context).push(
         MaterialPageRoute(
-          builder: (context) => const UserHomeScreen(),
+          builder: (context) => const ProductGridView(),
         ),
       );
       clearLoginFields();
@@ -99,7 +102,7 @@ class UserController with ChangeNotifier {
     notifyListeners();
   }
 
-  //-------------------For User Login------------------------------------
+  //-------------------For User Password Update------------------------------------
 
   TextEditingController changePasswordEmailController = TextEditingController();
   TextEditingController newPasswordController = TextEditingController();
@@ -140,7 +143,7 @@ class UserController with ChangeNotifier {
     notifyListeners();
   }
 
-  //----------------- Common ----------------------------------------------------
+  //----------------- Common ---------------------------------------------------
 
   Response? response;
 
@@ -183,5 +186,35 @@ class UserController with ChangeNotifier {
     emailController.clear();
     passwordController.clear();
     notifyListeners();
+  }
+
+  //----------------- Get Products ---------------------------------------------------
+
+  List<ProductsModel> productsList = [];
+  Future<List<ProductsModel>> fetchProducts() async {
+    final response =
+        await http.get(Uri.parse('https://dummyjson.com/products'));
+    if (response.statusCode == 200) {
+      var productData = jsonDecode(response.body.toString());
+      for (Map<String, dynamic> i in productData) {
+        productsList.add(ProductsModel.fromJson(i));
+      }
+      // print('Fetch Product Successful');
+      // print(productData);
+      // print(productsList.length);
+      return productsList;
+    } else {
+      // print('Error Fetching');
+      return productsList;
+    }
+  }
+
+  var data;
+  Future<void> getProducts() async {
+    final response =
+        await http.get(Uri.parse('https://dummyjson.com/products'));
+    if (response.statusCode == 200) {
+      data = jsonDecode(response.body.toString());
+    } else {}
   }
 }

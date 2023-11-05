@@ -17,20 +17,25 @@ class UserRegisterScreen extends StatelessWidget {
           Container(
             height: height,
             width: width,
-            decoration: const BoxDecoration(color: Colors.black),
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(colors: [
+                Color(0xFF363553),
+                Color(
+                  0xFF903775,
+                )
+              ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+            ),
           ),
           Positioned(
             child: Container(
               width: width,
               height: height / 4,
-              decoration: const BoxDecoration(color: Colors.black),
+              decoration: const BoxDecoration(),
               child: const Center(
                 child: Text(
-                  'OOPACKS',
+                  'SHOP NOW',
                   style: TextStyle(
-                    fontSize: 50,
-                    color: Colors.white,
-                  ),
+                      fontSize: 50, color: Colors.white, fontFamily: 'Poppins'),
                 ),
               ),
             ),

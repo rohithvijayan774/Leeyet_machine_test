@@ -18,13 +18,20 @@ class UserUpdatePassword extends StatelessWidget {
           Container(
             height: height,
             width: width,
-            decoration: const BoxDecoration(color: Colors.black),
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(colors: [
+                Color(0xFF363553),
+                Color(
+                  0xFF903775,
+                )
+              ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+            ),
           ),
           Positioned(
             child: Container(
               width: width,
               height: height / 3.3,
-              decoration: const BoxDecoration(color: Colors.black),
+              decoration: const BoxDecoration(),
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -44,10 +51,11 @@ class UserUpdatePassword extends StatelessWidget {
                       ],
                     ),
                     const Text(
-                      'OOPACKS',
+                      'SHOP NOw',
                       style: TextStyle(
                         fontSize: 50,
                         color: Colors.white,
+                        fontFamily: 'Poppins',
                       ),
                     ),
                   ],
